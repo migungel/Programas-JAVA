@@ -6,6 +6,10 @@ public class Practica2 {
 		System.out.println("***COTIZAR PIZZA***");
 		System.out.println("Ingrese la cantidad de ingredientes de la pizza: ");
 		Scanner sc = new Scanner(System.in);
+		while (!sc.hasNextInt()) {
+			sc.next();
+			System.out.println("Dato inválido \n");
+		}
 		int cantidad = sc.nextInt();
 		Pizza pizza = new Pizza();
 		
@@ -15,10 +19,18 @@ public class Practica2 {
 			Ingrediente ingredientes = new Ingrediente();
 			System.out.println("INGREDIENTES");
 			System.out.print("Ingrese la descripcion del Ingrediente " + n + ": ");
+			while (!sc.hasNextLine()) {
+				sc.next();
+				System.out.println("Dato inválido \n");
+			}
 			String ingrediente = sc.nextLine();
 			ingredientes.setDescripcion(ingrediente);
 			
 			System.out.print("Ingrese el precio del Ingrediente " + n + ": ");
+			while (!sc.hasNextFloat()) {
+				sc.next();
+				System.out.println("Dato inválido \n");
+			}
 			float precio = sc.nextFloat();
 			ingredientes.setPrecio(precio);
 			
